@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Visualizers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #208494;
+            --color-secondary: #6b5b95;
+            --color-bg: #1a1a1a;
+            --color-surface: #2d2d2d;
+            --color-text: #e9ecef;
+            --color-border: #495057;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: var(--color-primary);
+            text-align: center;
+        }
+
+        .visualizers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .visualizer-card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--color-text);
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visualizer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .visualizer-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .visualizer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(32, 132, 148, 0.3);
+            border-color: var(--color-primary);
+        }
+
+        .visualizer-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--color-primary);
+        }
+
+        .visualizer-card p {
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .visualizer-card .features {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .visualizer-card .features li {
+            padding: 5px 0;
+            opacity: 0.7;
+            font-size: 0.9em;
+        }
+
+        .visualizer-card .features li::before {
+            content: '✓ ';
+            color: var(--color-primary);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .coming-soon {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .coming-soon h3::after {
+            content: ' (Coming Soon)';
+            font-size: 0.6em;
+            color: #adb5bd;
+        }
+
+        footer {
+            background-color: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            padding: 20px;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .header p {
+                font-size: 1em;
+            }
+
+            .visualizers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎯 JavaScript Visualizers</h1>
+        <p>Interactive visualizations to understand algorithms and data structures</p>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Available Visualizers</h2>
+        <div class="visualizers-grid">
+            <a href="./visualizers/algorithm-visualizer/" class="visualizer-card">
+                <h3>🎨 Algorithm Visualizer</h3>
+                <p>Watch sorting algorithms come to life with step-by-step execution visualization</p>
+                <ul class="features">
+                    <li>5 sorting algorithms (Bubble, Selection, Insertion, Merge, Quick)</li>
+                    <li>Real-time code execution highlighting</li>
+                    <li>Adjustable speed and array size</li>
+                    <li>Performance statistics tracking</li>
+                </ul>
+            </a>
+
+            <div class="visualizer-card coming-soon">
+                <h3>🌳 Data Structure Visualizer</h3>
+                <p>Explore trees, graphs, and other data structures interactively</p>
+                <ul class="features">
+                    <li>Binary trees and BST operations</li>
+                    <li>Graph traversal algorithms</li>
+                    <li>Stack and queue operations</li>
+                </ul>
+            </div>
+
+            <div class="visualizer-card coming-soon">
+                <h3>🔍 Search Algorithm Visualizer</h3>
+                <p>Visualize pathfinding and search algorithms in action</p>
+                <ul class="features">
+                    <li>Binary search visualization</li>
+                    <li>DFS and BFS traversal</li>
+                    <li>A* pathfinding</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Built with modern JavaScript • Open Source</p>
+    </footer>
+</body>
+</html>

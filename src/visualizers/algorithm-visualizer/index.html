@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 Algorithm Visualizer</h1>
+            <p>Watch sorting and searching algorithms come to life</p>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="algorithm">Algorithm</label>
+                <select id="algorithm">
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="selection">Selection Sort</option>
+                    <option value="insertion">Insertion Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="quick">Quick Sort</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="arraySize">Array Size</label>
+                <input type="range" id="arraySize" min="10" max="100" value="50">
+                <span id="arraySizeDisplay">50</span>
+            </div>
+
+            <div class="control-group">
+                <label for="speed">Speed (ms)</label>
+                <input type="range" id="speed" min="100" max="1000" step="100" value="100">
+                <span id="speedDisplay">100</span>
+            </div>
+
+            <button id="generateBtn">Generate Array</button>
+            <button id="startBtn">Start Sorting</button>
+            <button id="resetBtn">Reset</button>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Comparisons</span>
+                    <span class="stat-value" id="comparisons">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Swaps</span>
+                    <span class="stat-value" id="swaps">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="viz-code-grid">
+            <div class="visualization">
+                <div class="array-container" id="arrayContainer"></div>
+            </div>
+            <div class="code-execution-block">
+                <h3>Code Execution</h3>
+                <div class="code-display" id="codeDisplay"></div>
+                <div class="code-execution-footer">
+                    <strong>Line:</strong> <span id="lineNumber">—</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3 id="algorithmName">Bubble Sort</h3>
+            <div class="info-grid" id="complexityGrid">
+                <div class="info-item">
+                    <strong>Time Complexity:</strong>
+                    <div class="complexity-display" id="timeComplexity">O(n²)</div>
+                </div>
+                <div class="info-item">
+                    <strong>Space Complexity:</strong>
+                    <div class="complexity-display" id="spaceComplexity">O(1)</div>
+                </div>
+                <div class="info-item">
+                    <strong>Status:</strong>
+                    <div id="status">Ready to sort</div>
+                </div>
+            </div>
+            <div class="info-item" style="margin-top: 15px;">
+                <strong>Description:</strong>
+                <div id="algorithmDesc" style="margin-top: 8px; line-height: 1.6;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

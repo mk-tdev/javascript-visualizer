@@ -1,0 +1,25 @@
+{
+  "name": "javascript-visualizer",
+  "version": "1.0.0",
+  "description": "Interactive visualizations for algorithms and data structures",
+  "homepage": "https://mk-tdev.github.io/javascript-visualizer/",
+  "bugs": {
+    "url": "https://github.com/mk-tdev/javascript-visualizer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-tdev/javascript-visualizer.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "devDependencies": {
+    "vite": "^7.3.0"
+  }
+}
