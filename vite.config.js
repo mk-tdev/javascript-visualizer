@@ -3,17 +3,19 @@ import { resolve } from 'path'
 
 export default defineConfig(({ command }) => ({
   base: command === 'build' ? '/javascript-visualizer/' : '/',
+  root: 'src',
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
-        'algorithm-visualizer': resolve(__dirname, 'src/visualizers/algorithm-visualizer/index.html')
+        'visualizers/algorithm-visualizer/index': resolve(__dirname, 'src/visualizers/algorithm-visualizer/index.html')
       }
     }
   },
   server: {
-    open: '/src/index.html',
+    open: '/index.html',
     port: 5173
   }
 }))
